@@ -17,6 +17,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	
 
 ```
+
 #	▄▀█ ▀█▀ █░░ ▄▀█ █▀ █▀ █ ▄▀█ █▄░█   █▀ █░█ █ ▀█▀ █▀▀ ▀
 #	█▀█ ░█░ █▄▄ █▀█ ▄█ ▄█ █ █▀█ █░▀█   ▄█ █▄█ █ ░█░ ██▄ ▄
 #	█▄─▄▄▀█─▄▄─█─▄▄▄─█▄─█─▄█▄─▄▄─█▄─▄▄▀█▄─▄▄─█▄─▄▄▀█
@@ -54,8 +55,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="${host}_db"
-	dbuser="${host}_db_user"		
+	database="{host}_db"
+	dbuser="{host}_db_user"		
 	dbimage="postgres"
 	port="${port}:8080"
 
@@ -80,7 +81,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 
 	host="service"		
 	port="8080"		
-	image="atlassian/service-software"
+	image="atlassian/jira-servicemanagement"
 	password=$PASSWORD
 	network=$NETWORK
 	restart=$RESTART
@@ -92,8 +93,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="${host}_db"
-	dbuser="${host}_db_user"	
+	database="{host}_db"
+	dbuser="{host}_db_user"	
 	dbimage="postgres"
 	port="${port}:8080"
 
@@ -130,8 +131,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="${host}_db"
-	dbuser="${host}_db_user"		
+	database="{host}_db"
+	dbuser="{host}_db_user"		
 	dbimage="postgres"
 	port="${port}:8080"
 
@@ -168,8 +169,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="${host}_db"
-	dbuser="${host}_db_user"		
+	database="{host}_db"
+	dbuser="{host}_db_user"		
 	dbimage="postgres"
 	port="${port}:8080"
 
@@ -206,8 +207,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="${host}_db"
-	dbuser="${host}_db_user"		
+	database="{host}_db"
+	dbuser="{host}_db_user"		
 	dbimage="postgres"
 	port="${port}:8080"
 
@@ -244,8 +245,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="${host}_db"
-	dbuser="${host}_db_user"		
+	database="{host}_db"
+	dbuser="{host}_db_user"		
 	dbimage="postgres"
 	port="${port}:7990"
 
@@ -282,8 +283,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="${host}_db"
-	dbuser="${host}_db_user"		
+	database="{host}_db"
+	dbuser="{host}_db_user"		
 	dbimage="postgres"
 	port="${port}:8085"
 
@@ -296,6 +297,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	docker run -v $volume:/var/atlassian/application-data/bamboo  --name=$host --network=$network --restart=$restart -d -p $port $image
 
 [ whereis my head at!
+
 
 ```
 	
