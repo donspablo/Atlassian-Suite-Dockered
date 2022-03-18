@@ -17,7 +17,6 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	
 
 ```
-
 #	▄▀█ ▀█▀ █░░ ▄▀█ █▀ █▀ █ ▄▀█ █▄░█   █▀ █░█ █ ▀█▀ █▀▀ ▀
 #	█▀█ ░█░ █▄▄ █▀█ ▄█ ▄█ █ █▀█ █░▀█   ▄█ █▄█ █ ░█░ ██▄ ▄
 #	█▄─▄▄▀█─▄▄─█─▄▄▄─█▄─█─▄█▄─▄▄─█▄─▄▄▀█▄─▄▄─█▄─▄▄▀█
@@ -55,8 +54,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
+	database="${host}_db"
+	dbuser="${host}_db_user"		
 	dbimage="postgres"
 	port="${port}:8080"
 
@@ -93,8 +92,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"	
+	database="${host}_db"
+	dbuser="${host}_db_user"	
 	dbimage="postgres"
 	port="${port}:8080"
 
@@ -131,8 +130,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
+	database="${host}_db"
+	dbuser="${host}_db_user"		
 	dbimage="postgres"
 	port="${port}:8080"
 
@@ -169,8 +168,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
+	database="${host}_db"
+	dbuser="${host}_db_user"		
 	dbimage="postgres"
 	port="${port}:8080"
 
@@ -207,8 +206,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
+	database="${host}_db"
+	dbuser="${host}_db_user"		
 	dbimage="postgres"
 	port="${port}:8080"
 
@@ -245,8 +244,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
+	database="${host}_db"
+	dbuser="${host}_db_user"		
 	dbimage="postgres"
 	port="${port}:7990"
 
@@ -283,8 +282,8 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
+	database="${host}_db"
+	dbuser="${host}_db_user"		
 	dbimage="postgres"
 	port="${port}:8085"
 
