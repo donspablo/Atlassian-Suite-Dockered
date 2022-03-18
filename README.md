@@ -80,7 +80,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 #	READY?
 
 	host="service"		
-	port="8080"		
+	port="8070"		
 	image="atlassian/jira-servicemanagement"
 	password=$PASSWORD
 	network=$NETWORK
@@ -118,7 +118,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 #	READY?
 
 	host="confluence"		
-	port="8080"		
+	port="8090"		
 	image="atlassian/confluence-server"
 	password=$PASSWORD
 	network=$NETWORK
@@ -134,7 +134,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	database="{host}_db"
 	dbuser="{host}_db_user"		
 	dbimage="postgres"
-	port="${port}:8080"
+	port="${port}:8090"
 
 	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbimage: ${dbimage} | port: ${port}"
 
@@ -156,7 +156,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 #	READY?
 
 	host="fisheye"		
-	port="8080"		
+	port="8060"		
 	image="atlassian/fisheye"
 	password=$PASSWORD
 	network=$NETWORK
@@ -194,7 +194,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 #	READY?
 
 	host="crowd"		
-	port="8080"		
+	port="8095"		
 	image="atlassian/crowd"
 	password=$PASSWORD
 	network=$NETWORK
@@ -210,7 +210,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	database="{host}_db"
 	dbuser="{host}_db_user"		
 	dbimage="postgres"
-	port="${port}:8080"
+	port="${port}:8095"
 
 	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbimage: ${dbimage} | port: ${port}"
 
@@ -271,6 +271,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 
 	host="bamboo"		
 	port="8085"		
+	port2="54663"	
 	image="atlassian/bamboo-server"
 	password=$PASSWORD
 	network=$NETWORK
@@ -287,6 +288,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	dbuser="{host}_db_user"		
 	dbimage="postgres"
 	port="${port}:8085"
+	port2="${port2}:54663"
 
 	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbimage: ${dbimage} | port: ${port}"
 
@@ -294,7 +296,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 
 	docker volume create --name $dbvolume
 	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e 'POSTGRES_DB=$database' -e 'POSTGRES_USER=$dbuser' -e 'POSTGRES_PASSWORD=$password' --network=$network --restart=$restart $dbimage
-	docker run -v $volume:/var/atlassian/application-data/bamboo  --name=$host --network=$network --restart=$restart -d -p $port $image
+	docker run -v $volume:/var/atlassian/application-data/bamboo  --name=$host --network=$network --restart=$restart -d -p $port  -p $port2 $image
 
 [ whereis my head at!
 
