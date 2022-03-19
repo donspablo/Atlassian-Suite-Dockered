@@ -56,7 +56,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
 	database="{host}_db"
-	dbuser="POSTGRES_DB={host}_db_user"
+	dbuser="POSTGRES_DB=${host}_db_user"
 	dbpassword="POSTGRES_PASSWORD=${password}"			
 	dbimage="postgres"
 	port="${port}:8080"
@@ -95,7 +95,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
 	database="{host}_db"
-	dbuser="POSTGRES_DB={host}_db_user"
+	dbuser="POSTGRES_DB=${host}_db_user"
 	dbpassword="POSTGRES_PASSWORD=${password}"		
 	dbimage="postgres"
 	port="${port}:8080"
@@ -134,7 +134,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
 	database="{host}_db"
-	dbuser="POSTGRES_DB={host}_db_user"
+	dbuser="POSTGRES_DB=${host}_db_user"
 	dbpassword="POSTGRES_PASSWORD=${password}"			
 	dbimage="postgres"
 	port="${port}:8090"
@@ -173,7 +173,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
 	database="{host}_db"
-	dbuser="POSTGRES_DB={host}_db_user"
+	dbuser="POSTGRES_DB=${host}_db_user"
 	dbpassword="POSTGRES_PASSWORD=${password}"			
 	dbimage="postgres"
 	port="${port}:8080"
@@ -212,7 +212,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
 	database="{host}_db"
-	dbuser="POSTGRES_DB={host}_db_user"
+	dbuser="POSTGRES_DB=${host}_db_user"
 	dbpassword="POSTGRES_PASSWORD=${password}"			
 	dbimage="postgres"
 	port="${port}:8095"
@@ -251,7 +251,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
 	database="{host}_db"
-	dbuser="POSTGRES_DB={host}_db_user"
+	dbuser="POSTGRES_DB=${host}_db_user"
 	dbpassword="POSTGRES_PASSWORD=${password}"			
 	dbimage="postgres"
 	port="${port}:7990"
@@ -291,7 +291,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
 	database="{host}_db"
-	dbuser="POSTGRES_DB={host}_db_user"
+	dbuser="POSTGRES_DB=${host}_db_user"
 	dbpassword="POSTGRES_PASSWORD=${password}"			
 	dbimage="postgres"
 	port="${port}:8085"
@@ -306,7 +306,6 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	docker run -v $volume:/var/atlassian/application-data/bamboo  --name=$host --network=$network --restart=$restart -d -p $port  -p $port2 $image
 
 [ whereis my head at!
-
 
 ```
 	
