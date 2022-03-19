@@ -26,49 +26,12 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 
 #	 GLOBALS:
 
-	PASSWORD="changeme"	
+	PASSWORD="P@ssw0rd*2020"	
 	NETWORK="jira_fastlane"
 	RESTART="always"
 	
 	docker network create -d bridge $NETWORK
 	
-#	  .--.      .-'
-#	:::::.\::::::::
-#	░░█ █ █▀█ ▄▀█ ▀
-#	█▄█ █ █▀▄ █▀█ ▄
-#	:::::.\::::::::
-#	'      `--'    
-
-#	READY?
-
-	host="jira"		
-	port="8080"		
-	image="atlassian/jira-software"
-	password=$PASSWORD
-	network=$NETWORK
-	restart=$RESTART
-
-	echo "host: ${host} | port: ${host} | image: ${image} | password: ${password} | network: ${network} | restart: ${restart}"
-
-#	SET
-
-	volume="${host}_volume"		
-	dbvolume="${host}_db_volume"	
-	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
-	dbimage="postgres"
-	port="${port}:8080"
-
-	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbimage: ${dbimage} | port: ${port}"
-
-#	GO
-
-	docker volume create --name $dbvolume
-	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e 'POSTGRES_DB=$database' -e 'POSTGRES_USER=$dbuser' -e 'POSTGRES_PASSWORD=$password' --network=$network --restart=$restart $dbimage
-	docker run -v $volume:/var/atlassian/application-data/jira --name=$host --network=$network --restart=$restart -d -p $port $image
-
-#	🏁 FINISHED
 
 #	  .--.      .-'.      .-
 #	:::::.\::::::::.\:::::::
@@ -80,7 +43,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 #	READY?
 
 	host="service"		
-	port="8070"		
+	port="8080"		
 	image="atlassian/jira-servicemanagement"
 	password=$PASSWORD
 	network=$NETWORK
@@ -93,17 +56,18 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"	
+	database="POSTGRES_DB=${host}_db"
+	dbuser="POSTGRES_USER=${host}_db_user"
+	dbpassword="POSTGRES_PASSWORD=${password}"	
 	dbimage="postgres"
 	port="${port}:8080"
 
-	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbimage: ${dbimage} | port: ${port}"
+	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbpassword: ${dbpassword} | dbimage: ${dbimage} | port: ${port}"
 
 #	GO
 
 	docker volume create --name $dbvolume
-	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e 'POSTGRES_DB=$database' -e 'POSTGRES_USER=$dbuser' -e 'POSTGRES_PASSWORD=$password' --network=$network --restart=$restart $dbimage
+	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e $database -e $dbuser -e $dbpassword --network=$network --restart=$restart $dbimage
 	docker run -v $volume:/var/atlassian/application-data/jira --name=$host --network=$network --restart=$restart -d -p $port $image
 
 #	🏁 FINISHED
@@ -118,7 +82,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 #	READY?
 
 	host="confluence"		
-	port="8090"		
+	port="8080"		
 	image="atlassian/confluence-server"
 	password=$PASSWORD
 	network=$NETWORK
@@ -131,17 +95,18 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
+	database="POSTGRES_DB=${host}_db"
+	dbuser="POSTGRES_USER=${host}_db_user"
+	dbpassword="POSTGRES_PASSWORD=${password}"		
 	dbimage="postgres"
-	port="${port}:8090"
+	port="${port}:8080"
 
-	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbimage: ${dbimage} | port: ${port}"
+	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbpassword: ${dbpassword} | dbimage: ${dbimage} | port: ${port}"
 
 #	GO
 
 	docker volume create --name $dbvolume
-	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e 'POSTGRES_DB=$database' -e 'POSTGRES_USER=$dbuser' -e 'POSTGRES_PASSWORD=$password' --network=$network --restart=$restart $dbimage
+	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e $database -e $dbuser -e $dbpassword --network=$network --restart=$restart $dbimage
 	docker run -v $volume:/var/atlassian/application-data/confluence --name=$host --network=$network --restart=$restart -d -p $port $image
 
 #	FINISHED
@@ -156,7 +121,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 #	READY?
 
 	host="fisheye"		
-	port="8060"		
+	port="8080"		
 	image="atlassian/fisheye"
 	password=$PASSWORD
 	network=$NETWORK
@@ -169,17 +134,18 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
+	database="POSTGRES_DB=${host}_db"
+	dbuser="POSTGRES_USER=${host}_db_user"
+	dbpassword="POSTGRES_PASSWORD=${password}"		
 	dbimage="postgres"
 	port="${port}:8080"
 
-	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbimage: ${dbimage} | port: ${port}"
+	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbpassword: ${dbpassword} | dbimage: ${dbimage} | port: ${port}"
 
 #	GO
 
 	docker volume create --name $dbvolume
-	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e 'POSTGRES_DB=$database' -e 'POSTGRES_USER=$dbuser' -e 'POSTGRES_PASSWORD=$password' --network=$network --restart=$restart $dbimage
+	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e $database -e $dbuser -e $dbpassword --network=$network --restart=$restart $dbimage
 	docker run -v $volume:/atlassian/data/fisheye --name=$host --network=$network --restart=$restart -d -p $port $image
 
 #	FINISHED
@@ -194,7 +160,7 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 #	READY?
 
 	host="crowd"		
-	port="8095"		
+	port="8080"		
 	image="atlassian/crowd"
 	password=$PASSWORD
 	network=$NETWORK
@@ -207,17 +173,18 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
+	database="POSTGRES_DB=${host}_db"
+	dbuser="POSTGRES_USER=${host}_db_user"
+	dbpassword="POSTGRES_PASSWORD=${password}"		
 	dbimage="postgres"
-	port="${port}:8095"
+	port="${port}:8080"
 
-	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbimage: ${dbimage} | port: ${port}"
+	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbpassword: ${dbpassword} | dbimage: ${dbimage} | port: ${port}"
 
 #	GO
 
 	docker volume create --name $dbvolume
-	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e 'POSTGRES_DB=$database' -e 'POSTGRES_USER=$dbuser' -e 'POSTGRES_PASSWORD=$password' --network=$network --restart=$restart $dbimage
+	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e $database -e $dbuser -e $dbpassword --network=$network --restart=$restart $dbimage
 	docker run -v $volume:/var/atlassian/application-data/crowd --name=$host --network=$network --restart=$restart -d -p $port $image
 
 #	FINISHED
@@ -245,17 +212,18 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
+	database="POSTGRES_DB=${host}_db"
+	dbuser="POSTGRES_USER=${host}_db_user"
+	dbpassword="POSTGRES_PASSWORD=${password}"		
 	dbimage="postgres"
 	port="${port}:7990"
 
-	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbimage: ${dbimage} | port: ${port}"
+	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbpassword: ${dbpassword} | dbimage: ${dbimage} | port: ${port}"
 
 #	GO
 
 	docker volume create --name $dbvolume
-	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e 'POSTGRES_DB=$database' -e 'POSTGRES_USER=$dbuser' -e 'POSTGRES_PASSWORD=$password' --network=$network --restart=$restart $dbimage
+	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e $database -e $dbuser -e $dbpassword --network=$network --restart=$restart $dbimage
 	docker run -v $volume:/var/atlassian/application-data/bitbucket --name=$host --network=$network --restart=$restart -d -p $port $image
 
 #	FINISHED
@@ -271,7 +239,6 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 
 	host="bamboo"		
 	port="8085"		
-	port2="54663"	
 	image="atlassian/bamboo-server"
 	password=$PASSWORD
 	network=$NETWORK
@@ -284,19 +251,19 @@ Simply modify the variables and copy and paste them into your terminal, or save 
 	volume="${host}_volume"		
 	dbvolume="${host}_db_volume"	
 	dbhost="${host}_db"
-	database="{host}_db"
-	dbuser="{host}_db_user"		
+	database="POSTGRES_DB=${host}_db"
+	dbuser="POSTGRES_USER=${host}_db_user"
+	dbpassword="POSTGRES_PASSWORD=${password}"		
 	dbimage="postgres"
 	port="${port}:8085"
-	port2="${port2}:54663"
 
-	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbimage: ${dbimage} | port: ${port}"
+	echo "volume: ${volume} | dbvolume: ${dbvolume} | dbhost: ${dbhost} | database: ${database} | dbuser: ${dbuser} | dbpassword: ${dbpassword} | dbimage: ${dbimage} | port: ${port}"
 
 #	GO
 
 	docker volume create --name $dbvolume
-	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e 'POSTGRES_DB=$database' -e 'POSTGRES_USER=$dbuser' -e 'POSTGRES_PASSWORD=$password' --network=$network --restart=$restart $dbimage
-	docker run -v $volume:/var/atlassian/application-data/bamboo  --name=$host --network=$network --restart=$restart -d -p $port  -p $port2 $image
+	docker run -v $dbvolume:/var/lib/postgresql/data --name $dbhost -d -e $database -e $dbuser -e $dbpassword --network=$network --restart=$restart $dbimage
+	docker run -v $volume:/var/atlassian/application-data/bamboo  --name=$host --network=$network --restart=$restart -d -p $port $image
 
 [ whereis my head at!
 
